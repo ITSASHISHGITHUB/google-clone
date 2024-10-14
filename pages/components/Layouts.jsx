@@ -7,7 +7,7 @@ const Layout = ({ go, searchTerm }) => {
   useEffect(() => {
     const fetchData = async () => {
       if (searchTerm && searchTerm.trim()) {
-        setLoading(true); // Set loading to true when fetching starts
+        setLoading(true); 
         try {
           const response = await fetch(
             `/api/search?query=${encodeURIComponent(searchTerm)}`
@@ -21,7 +21,7 @@ const Layout = ({ go, searchTerm }) => {
         } catch (error) {
           console.error("Error:", error);
         } finally {
-          setLoading(false); // Set loading to false once fetching is done
+          setLoading(false); 
         }
       } else {
         console.log("Please enter a search term.");
@@ -63,10 +63,10 @@ const Layout = ({ go, searchTerm }) => {
         <div className="text-center mt-12">
           <h1 className="text-5xl font-bold text-gray-800">Ashish Yadav</h1>
           <p className="text-2xl text-gray-600 mt-4">
-            Full Stack Developer | React.js & Next.js Specialist
+            Full Stack Developer | React.js &amp; Next.js Specialist
           </p>
           <p className="mt-6 text-gray-500 max-w-lg mx-auto">
-            Hi, I'm Ashish Yadav, a passionate developer with a keen focus on building responsive and interactive web applications. I specialize in front-end technologies like React and Next.js, ensuring smooth user experiences.
+            Hi, I&apos;m Ashish Yadav, a passionate developer with a keen focus on building responsive and interactive web applications. I specialize in front-end technologies like React and Next.js, ensuring smooth user experiences.
           </p>
 
           <div className="mt-8 flex justify-center space-x-8">
@@ -99,7 +99,7 @@ const Layout = ({ go, searchTerm }) => {
 
           <div className="mt-12">
             <p className="text-gray-600 text-lg max-w-xl mx-auto">
-              If you're looking for someone to create robust web solutions, feel free to reach out! I'm always open to new challenges and opportunities.
+              If you&apos;re looking for someone to create robust web solutions, feel free to reach out! I&apos;m always open to new challenges and opportunities.
             </p>
           </div>
         </div>

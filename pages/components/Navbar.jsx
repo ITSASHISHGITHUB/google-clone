@@ -8,18 +8,31 @@ const Navbar = ({ setGo, setSearchTerm }) => {
   };
 
   const handleSearch = () => {
-    setSearchTerm(data); 
-    setGo(true); 
+    if (data.trim()) {
+      setSearchTerm(data);
+      setGo(true);
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
+  const handleClear = () => {
+    setData('');
+    setGo(false); 
   };
 
   return (
     <div>
-      <nav className="flex justify-between items-center p-4 shadow-md bg-white">
+      <nav className="flex justify-between items-center p-4 shadow-md bg-gradient-to-r  text-black">
         <div className="flex items-center space-x-4">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
             alt="Google Logo"
-            className="h-8"
+            className="h-10 transform hover:scale-105 transition-transform duration-200 ease-in-out"
           />
         </div>
 
@@ -28,15 +41,22 @@ const Navbar = ({ setGo, setSearchTerm }) => {
             <input
               type="text"
               placeholder="Search Google or type URL"
-              className="w-full px-4 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring focus:ring-blue-300"
+              className="w-full px-4 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none transition-all duration-200 ease-in-out transform text-black"
               value={data}
               onChange={handleChange}
+              onKeyDown={handleKeyDown} 
             />
             <button
-              className="text-gray-600 hover:text-black p-2 rounded-full focus:outline-none focus:ring focus:ring-blue-300"
+              className="bg-white text-gray-600 hover:bg-blue-500 hover:text-white p-2 rounded-full transition duration-300 ease-in-out focus:outline-none focus:ring focus:ring-blue-300"
               onClick={handleSearch}
             >
               Search
+            </button>
+            <button
+              className="bg-white text-gray-600 hover:bg-blue-500 hover:text-white p-2 rounded-full transition duration-300 ease-in-out focus:outline-none focus:ring focus:ring-blue-300"
+              onClick={handleClear} 
+            >
+              Clear
             </button>
           </div>
         </div>
